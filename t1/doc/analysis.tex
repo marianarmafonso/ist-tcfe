@@ -27,8 +27,8 @@ $R_6$ & 2,06711403452 \\
 $R_7$ & 1,03302701196 \\
 $V_a$ & 5,13988034104\\
 $I_d$ & 1,02475824097 \\
-$K_b$ & 7,0544535009 x $10^{-3}$ \\
-$K_c$ & 8,16113797582 x $10^3$\\
+$K_b$ & 7,0544535009e-03 \\
+$K_c$ & 8,16113797582e+03\\
 \hline
 \end{tabular}
 \end{small}
@@ -88,10 +88,10 @@ K_bR_3 & -1 + K_bR_3 & 0 & 0 \\
 \hline
 Meshes currents & Values obtained (Ampers)\\
 \hline
-$I_1$           & 2,00 \\
-$I_2$  & 1,50 \\
-$I_3$         & 1,50 \\
-$I_4$   & 3,00 \\
+$I_1$ & \partialinput{1}{1}{tabelaM.tex} \\
+$I_2$  & \partialinput{2}{2}{tabelaM.tex} \\
+$I_3$  & \partialinput{3}{3}{tabelaM.tex}\\
+$I_4$   & \partialinput{4}{4}{tabelaM.tex} \\
 \hline
 \end{tabular}
 \end{small}
@@ -183,6 +183,36 @@ V_2 = V_3 + R_6I_2
 V_1 = V_2 + V_a
 \label{eq: V1}
 \end{equation}
+
+Voltage values, represented by $V_i$, are given in Volts and currents, represented by $I_i$ or $R_i$[i] in Ampers.
+\begin{table}[h!]
+\centering
+\begin{small}
+\caption{Currents and voltages obtained by mesh method.} \label{Table3}
+\begin{tabular}{|c|c|}
+\hline
+Meshes currents & Values obtained (Ampers/Volts)\\
+\hline
+$I_b$ & \partialinput{1}{1}{tabelaM2.tex} \\
+$I_d$  & \partialinput{2}{2}{tabelaM2.tex} \\
+$R_1[i]$  & \partialinput{3}{3}{tabelaM2.tex}\\
+$R_2[i]$   & \partialinput{4}{4}{tabelaM2.tex} \\
+$R_3[i]$ & \partialinput{5}{5}{tabelaM2.tex} \\
+$R_4[i]$  & \partialinput{6}{6}{tabelaM2.tex} \\
+$R_5[i]$ & \partialinput{7}{7}{tabelaM2.tex}\\
+$R_6[i]$   & \partialinput{8}{8}{tabelaM2.tex} \\
+$R_7[i]$ & \partialinput{9}{9}{tabelaM2.tex} \\
+$V_1$  & \partialinput{10}{10}{tabelaM2.tex} \\
+$V_2$  & \partialinput{11}{11}{tabelaM2.tex}\\
+$V_3$   & \partialinput{12}{12}{tabelaM2.tex} \\
+$V_4$  & \partialinput{13}{13}{tabelaM2.tex} \\
+$V_5$  & \partialinput{14}{14}{tabelaM2.tex}\\
+$V_6$   & \partialinput{15}{15}{tabelaM2.tex} \\
+$V_7$   & \partialinput{16}{16}{tabelaM2.tex} \\
+\hline
+\end{tabular}
+\end{small}
+\end{table}
 
 \newpage
 \section{Node method}
@@ -312,5 +342,26 @@ R_6[i] = \frac{(V_2 - V_3)}{R_6}
 R_7[i] = \frac{V_3}{R_7}
   \label{eq: iR7}
 \end{equation}
+
+\begin{table}[h!]
+\centering
+\begin{small}
+\caption{Branch currents obtained by node method.} \label{Table3}
+\begin{tabular}{|c|c|}
+\hline
+Branch currents & Values obtained (Ampers)\\
+\hline
+$I_b$ & \partialinput{1}{1}{tabelaV2.tex} \\
+$R_1[i]$  & \partialinput{2}{2}{tabelaV2.tex}\\
+$R_2[i]$   & \partialinput{3}{3}{tabelaV2.tex} \\
+$R_3[i]$ & \partialinput{4}{4}{tabelaV2.tex} \\
+$R_4[i]$  & \partialinput{5}{5}{tabelaV2.tex} \\
+$R_5[i]$ & \partialinput{6}{6}{tabelaV2.tex}\\
+$R_6[i]$   & \partialinput{7}{7}{tabelaV2.tex} \\
+$R_7[i]$ & \partialinput{8}{8}{tabelaV2.tex} \\
+\hline
+\end{tabular}
+\end{small}
+\end{table}
 
 

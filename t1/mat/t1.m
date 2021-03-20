@@ -35,6 +35,43 @@ C= [R(4), Z, R(4)+R(6)+R(7)-Kc, Z;
     Z, Z, Z, O]
 D=[Z; Va; Z; Id]
 I=C\D;
-
+I1 = I(1); 
+I2 = I(2); 
+I3 =I(3); 
+I4 = I(4); 
 % Criar tabela nós
 save("-ascii","../doc/tabelaV.tex","V1", "V2", "V3", "V4", "V5", "V6", "V7");
+save("-ascii","../doc/tabelaM.tex","I1", "I2", "I3", "I4");
+
+Vc = Kc*I(3);
+Ib = I(2);
+IdM = I(4);
+R1 = I(1);
+R2 = I(2);
+R3 = I(1) + I(2);
+R4 = I(1) + I(3);
+R5 = I(4) - I(2);
+R6 = I(3);
+R7 = I(3);
+Vb = Ib/Kb;
+V7M = Vc;
+V6M = Vb + V7;
+V5M = V6 + R(2)*I(2);
+V4M = V7 + R(5)*(I(4)-I(2));
+V3M = R(7)*I(3);
+V2M = V3 + R(6)*I(2);
+V1M = V2 + Va;
+
+save("-ascii","../doc/tabelaM2.tex","Ib", "IdM", "R1", "R2", "R3", "R4", "R5", "R6", "R7", "V1M", "V2M", "V3M", "V4M", "V5M", "V6M", "V7M");
+
+IbN = Kb*(V(6) - V(7));
+R1N = (V(6) - V(1))/R(1);
+R2N = (V(5) - V(6))/R(2);
+R3N = (V(6) - V(7))/R(3);
+R4N = (V(2) - V(7))/R(4);
+R5N = (V(4) - V(7))/R(5);
+R6N = (V(2) - V(3))/R(6);
+R7N = V(3)/R(7);
+
+save("-ascii","../doc/tabelaV2.tex","IbN", "R1N", "R2N", "R3N", "R4N", "R5N", "R6N", "R7N");
+
