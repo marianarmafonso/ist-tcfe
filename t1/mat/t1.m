@@ -20,7 +20,13 @@ A= [Z, -G(6), G(6)+G(7), Z, Z, Z, Z;
     G(1), G(4), G(7), Z, Z, -G(1), -G(4)]
 B= [Z; Id; Z; Z; Va; Z; Z];
 V=A\B;
-TN=[1, V(1); 2, V(2); 3, V(3); 4, V(4); 5, V(5); 6, V(6); 7, V(7)]
+V1 = V(1); 
+V2 = V(2); 
+V3 =V(3); 
+V4 =V(4); 
+V5 =V(5); 
+V6 =V(6); 
+V7 =V(7)
 
 % Método das malhas
 C= [R(4), Z, R(4)+R(6)+R(7)-Kc, Z;
@@ -29,8 +35,6 @@ C= [R(4), Z, R(4)+R(6)+R(7)-Kc, Z;
     Z, Z, Z, O]
 D=[Z; Va; Z; Id]
 I=C\D;
-TM=[1, I(1); 2, I(2); 3, I(3); 4, I(4)]
 
 % Criar tabela nós
-T = table(TN, 'VariableNames', {'Node Number', 'Node Voltage'});
-L = table(TM, 'VariableNames', {'Loop Number', 'Loop Current'});
+save("-ascii","../doc/tabelaV.tex","V1", "V2", "V3", "V4", "V5", "V6", "V7");
