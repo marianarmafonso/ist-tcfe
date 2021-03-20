@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  20 MAR 2021 18:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  20 MAR 2021 21:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -572,14 +572,7 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \c@mdf@zref@counter=\count302
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
-(./report.aux
-
-LaTeX Warning: Label `Table3' multiply defined.
-
-
-LaTeX Warning: Label `Table3' multiply defined.
-
-)
+(./report.aux)
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
@@ -834,17 +827,13 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 205.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 205.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 1B88A08C72AF6AC2CBBF49B5705C88E0;382.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 205.
  ) 
 Here is how much of TeX's memory you used:
- 15442 strings out of 481239
- 281386 string characters out of 5920378
- 681296 words of memory out of 5000000
- 30242 multiletter control sequences out of 15000+600000
+ 15444 strings out of 481239
+ 281402 string characters out of 5920378
+ 682385 words of memory out of 5000000
+ 30244 multiletter control sequences out of 15000+600000
  604351 words of font info for 137 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  41i,10n,42p,925b,739s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -861,7 +850,7 @@ nts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb><
 t/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvet
 ic/uhvro8a.pfb>
-Output written on report.pdf (10 pages, 383471 bytes).
+Output written on report.pdf (10 pages, 383830 bytes).
 PDF statistics:
  270 PDF objects out of 1000 (max. 8388607)
  213 compressed objects within 3 object streams

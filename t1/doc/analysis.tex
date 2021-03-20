@@ -15,8 +15,8 @@ To calculate the unkown voltages and currents, we use the following values (Resi
 \begin{table}[h!]
 \centering
 \begin{small}
-\caption{Given values.} \label{Table1}
-\begin{tabular}{c|c}
+\caption{Given values by Python.} \label{Table1}
+\begin{tabular}{|c|c|}
 \hline
 $R_1$ & 1,00332071212 \\
 $R_2$  & 2,04460853047 \\
@@ -84,7 +84,7 @@ K_bR_3 & -1 + K_bR_3 & 0 & 0 \\
 \centering
 \begin{small}
 \caption{Meshes table.} \label{Table2}
-\begin{tabular}{c|c}
+\begin{tabular}{|c|c|}
 \hline
 Meshes currents & Values obtained (Ampers)\\
 \hline
@@ -175,7 +175,7 @@ V_3 = R_7I_3
 \end{equation}
 
 \begin{equation}
-V_2 = V_3 + R_6I_2
+V_2 = V_3 + R_6I_3
   \label{eq: V2}
 \end{equation}
 
@@ -284,8 +284,8 @@ $$ \left[ \begin{array}{ccccccc} 0 & -\frac{1}{R_6} & \frac{1}{R_6} + \frac{1}{R
 \begin{table}[h!]
 \centering
 \begin{small}
-\caption{Nodes table.} \label{Table3}
-\begin{tabular}{c|c}
+\caption{Nodes table.} \label{Table4}
+\begin{tabular}{|c|c|}
 \hline
 Nodes Voltages & Values obtained (Volts)\\
 \hline
@@ -346,7 +346,7 @@ R_7[i] = \frac{V_3}{R_7}
 \begin{table}[h!]
 \centering
 \begin{small}
-\caption{Branch currents obtained by node method.} \label{Table3}
+\caption{Branch currents obtained by node method.} \label{Table5}
 \begin{tabular}{|c|c|}
 \hline
 Branch currents & Values obtained (Ampers)\\
