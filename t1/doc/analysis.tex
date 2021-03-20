@@ -1,3 +1,4 @@
+\newpage
 \section{Theoretical Analysis}
 \label{sec:analysis}
 In this section, the circuit shown in Figure~\ref{fig:Circuit} is analysed
@@ -44,23 +45,23 @@ $K_c$ & 8,16113797582 x $10^3$\\
 \noindent In Figure~\ref{fig:Circuit_Mesh}, we defined a current for each circuit essencial loop.
 As said before, we will have four equations, because we need to compute four currents
 ($I_1$, $I_2$, $I_3$ and $I_4$).
-In this analysis, we consider currents flowing counter clockwise as positive values and currents flowing clockwise as negative values, using KVL.
+In this analysis, we assumed that the current in mesh one is flowing clockwise and the three other currents are flowing in the other direction. Once we calculate the values to each current with the KVL method, we know that the negative ones are not flowing in the direction we assumed.
 
-\noindent Starting with mesh 3, we can see by inspection that $I_c$ = $I_3$  and that $R_3$  depends on $I_1$  and $I_3$, which have opposite directions. The other 3 components depend only on $I_3$. In the voltage source, the current flows to the positive side to the negative, so it is not aligned with the direction we selected. Hence, we must consider it negative. So we have this equation:
+\noindent Starting with mesh 3, we can see by inspection that $I_c$ = $I_3$  and that $R_3$  depends on $I_1$  and $I_3$, which have the same direction. The other 3 components depend only on $I_3$. In the voltage source, the current flows to the positive side to the negative, so it is not aligned with the direction we selected. Hence, we must consider it negative. So we have this equation:
 \begin{equation}
-(I_3 - I_1)R_4 + I_3R_7+I_3R_6 - K_cI_3  = 0
+(I_3 + I_1)R_4 + I_3R_7+I_3R_6 - K_cI_3  = 0
   \label{eq:kcl_mesh3}
 \end{equation}
 
-\noindent In mesh 1, the voltage source is aligned with the selected direction, so we consider it positive. The current in $R_1$ is only dependent from $I_1$, which we can see by inspection, and $R_3$  and $R_4$  depend on two different currents with opposite directions, being $I_1$  the positive one for this loop. Then we have to switch the signal in $R_3$ because the negative and opposite sides are not aligned with the current we estimated for this loop. So we have: 
+\noindent In circuit analysis, we always consider the current flowing from the negative side to the positive, so in mesh 1, the voltage source is not aligned with the selected direction. For that reason, we consider $V_a$ negative. The current in $R_1$ depends only in $I_1$, which we can see by inspection, and $R_3$  and $R_4$  depend on two different currents with the same direction, which is positive because we assumed the clockwise direction. So we have: 
 \begin{equation}
-(I_1 - I_3)R_4 + V_a + R_3(I_2 - I_1)+ R_1I_1 = 0
+(I_1 + I_3)R_4 - V_a + R_3(I_2 + I_1)+ R_1I_1 = 0
   \label{eq:kcl_mesh1}
 \end{equation}
 
-\noindent We already have two equations, but we are going to need two additional ones, since we can not use this method in loops with current sources. We can get these two equations by inspection of the two current sources. Starting with $I_b$, the dependent source, we already  know the relation between this source and $V_b$, so we only have to write this term as a function of resistances and currents, as we have done previously on the equation for mesh 1. So we can write:
+\noindent We already have two equations, but we are going to need two additional ones, since we can not use this method in meshes with current sources. We can get these two equations by inspection of the two current sources. Starting with the dependent source $I_b$, we already  know the relation between this source and $V_b$, so we only have to write this term as a function of resistances and currents. We already wrote $V_b$ as a function of $R_3$, $I_2$ and $I_1$ at the third term of the previous equation for mesh 1. So we write it again:
 \begin{equation}
-I_2 = K_bR_3(I_2-I_1)
+I_2 = K_bR_3(I_2+I_1)
   \label{eq:kcl_mesh2}
 \end{equation}
 
@@ -71,14 +72,14 @@ I_4 = I_d
 \end{equation}
 
 \noindent All these equations can be transformed in a matricial system as it is shown here:
-$$ \left[ \begin{array}{cccc} -R_4 & 0 & R_6 + R_4 + R_7- K_c  & 0\\
-R_4 - R_3 + R_1   & R_3  & - R_4  & 0 \\
-K_bR_3 & 1 - K_bR_3 & 0 & 0 \\
+$$ \left[ \begin{array}{cccc} R_4 & 0 & R_6 + R_4 + R_7- K_c  & 0\\
+R_4 + R_3 + R_1   & R_3  &  R_4  & 0 \\
+K_bR_3 & -1 + K_bR_3 & 0 & 0 \\
  0 & 0 & 0 & 1 \end{array} \right]
 \left[ \begin{array}{c} I_1 \\ I_2 \\ I_3 \\ I_4\end{array} \right] = 
-\left[ \begin{array}{c} 0 \\ -V_a \\ 0 \\ I_d \end{array} \right] $$
+\left[ \begin{array}{c} 0 \\ V_a \\ 0 \\ I_d \end{array} \right] $$
 
-\noindent Solving this system using Ocatve and the values given, we have obtained this values:
+\noindent Solving this system using Octave and the values given, we have obtained this values:
 \begin{table}[h!]
 \centering
 \begin{small}
@@ -95,6 +96,93 @@ $I_4$   & 3,00 \\
 \end{tabular}
 \end{small}
 \end{table}
+
+\noindent With this currents, we can discover node voltages and currents passing through each resistance, with the following equations, and knowing that $V_c$ = $K_c$$I_3$:
+
+\begin{equation}
+I_ b = I_2
+  \label{eq: IB}
+\end{equation}
+
+\begin{equation}
+I_ d = I_4
+  \label{eq: I4}
+\end{equation}
+
+\begin{equation}
+R_1[i] = I_1
+  \label{eq: IR1}
+\end{equation}
+
+\begin{equation}
+R_2[i] = I_2
+  \label{eq: IR2}
+\end{equation}
+
+\begin{equation}
+R_3[i] = I_1 + I_2
+  \label{eq: IR3}
+\end{equation}
+
+\begin{equation}
+R_4[i] = I_1 + I_3
+  \label{eq: IR4}
+\end{equation}
+
+\begin{equation}
+R_5[i] = I_4 - I_2
+  \label{eq: IR5}
+\end{equation}
+
+\begin{equation}
+R_6[i] = I_3
+  \label{eq: IR6}
+\end{equation}
+
+\begin{equation}
+R_7[i] = I_3
+  \label{eq: IR7}
+\end{equation}
+
+\begin{equation}
+V_b = \frac{I_b}{K_b}
+  \label{eq: Vb}
+\end{equation}
+
+\begin{equation}
+V_7 = V_c
+  \label{eq: V7}
+\end{equation}
+
+\begin{equation}
+V_6 = V_b + V_7
+\label{eq: V6}
+\end{equation}
+
+\begin{equation}
+V_5 = V_6 + R_2I_2
+  \label{eq: V5}
+\end{equation}
+
+\begin{equation}
+V_4 = V_7 + R_5(I_4 - I_2)
+  \label{eq: V4}
+\end{equation}
+
+\begin{equation}
+V_3 = R_7I_3
+  \label{eq: V3}
+\end{equation}
+
+\begin{equation}
+V_2 = V_3 + R_6I_2
+  \label{eq: V2}
+\end{equation}
+
+\begin{equation}
+V_1 = V_2 + V_a
+\label{eq: V1}
+\end{equation}
 
 \newpage
 \section{Node method}
@@ -182,4 +270,47 @@ $V_7$     &  7,00 \\
 \end{tabular}
 \end{small}
 \end{table}
+
+\noindent Having discovered nodes voltages, we need now to obtain the currents flowing in each resistance and $I_b$, with the following equations:
+
+\begin{equation}
+I_b = K_b(V_6 - V_7)
+  \label{eq:Ib}
+\end{equation}
+
+\begin{equation}
+R_1[i] = \frac{(V_6 - V_1)}{R_1}
+  \label{eq: iR1}
+\end{equation}
+
+\begin{equation}
+R_2[i] = \frac{(V_5 - V_6)}{R_2}
+  \label{eq: iR2}
+\end{equation}
+
+\begin{equation}
+R_3[i] = \frac{(V_6 - V_7)}{R_3}
+  \label{eq: iR3}
+\end{equation}
+
+\begin{equation}
+R_4[i] = \frac{(V_2 - V_7)}{R_4}
+  \label{eq: iR4}
+\end{equation}
+
+\begin{equation}
+R_5[i] = \frac{(V_4 - V_7)}{R_5}
+  \label{eq: iR5}
+\end{equation}
+
+\begin{equation}
+R_6[i] = \frac{(V_2 - V_3)}{R_6}
+  \label{eq: iR6}
+\end{equation}
+
+\begin{equation}
+R_7[i] = \frac{V_3}{R_7}
+  \label{eq: iR7}
+\end{equation}
+
 
