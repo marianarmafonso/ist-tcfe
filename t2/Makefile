@@ -4,16 +4,20 @@
 # type "make clean" to delete all generated files
 # ------------------------------------------------------------
 
-all:
+all: python
+	
 	make -C mat
 	make -C sim
 	make -C doc
 	cp doc/report.pdf .
+python:
+	python2 t2_datagen.py 95804 > mat/data.txt
 
 clean:
 	make -C mat clean
 	make -C sim clean
 	make -C doc clean
+	
 
 .PHONY: all clean
 
