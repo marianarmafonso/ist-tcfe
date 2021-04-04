@@ -175,3 +175,29 @@ w= logspace(-1, 6, 200);
 figure
 bode(vc, vs, w);
 print("lab2_bode.png", "-dpng");
+
+%ngspice
+
+filename = 'ngspice_t21.txt'
+file = fopen(filename, 'w');
+fprintf (file, "Vs 1 0 DC %.11e\nR1 1 2 %.11e\nR2 2 3 %.11e\nR3 2 5 %.11e\nR4 0 5 %.11e\nR5 5 6 %.11e\nR6 9 7 %.11e\nR7 7 8 %.11e\nVaux 0 9 0V\nHd 5 8 Vaux %.11e\nGb 6 3 (2,5) %.11e\nC1 6 8 %.11e", Vs, R1, R2, R3, R4, R5, R6, R7, Kd, Kb, C);
+fflush(filename);
+fclose(filename);
+
+filename = 'ngspice_t22.txt'
+file = fopen(filename, 'w');
+fprintf (file, "Vs 1 0 DC 0\nR1 1 2 %.11e\nR2 2 3 %.11e\nR3 2 5 %.11e\nR4 0 5 %.11e\nR5 5 6 %.11e\nR6 9 7 %.11e\nR7 7 8 %.11e\nVaux 0 9 0V\nHd 5 8 Vaux %.11e\nGb 6 3 (2,5) %.11e\nVx 6 8 DC %.11e", R1, R2, R3, R4, R5, R6, R7, Kd, Kb, Vx);
+fflush(filename);
+fclose(filename);
+
+filename = 'ngspice_t23.txt'
+file = fopen(filename, 'w');
+fprintf (file, "Vs 1 0 DC 0\nR1 1 2 %.11e\nR2 2 3 %.11e\nR3 2 5 %.11e\nR4 0 5 %.11e\nR5 5 6 %.11e\nR6 9 7 %.11e\nR7 7 8 %.11e\nVaux 0 9 0V\nHd 5 8 Vaux %.11e\nGb 6 3 (2,5) %.11e\nC1 6 8 %.11e\n\n.op\n\n.ic v(6) = %.11e v(8) = 0\n\n.end", R1, R2, R3, R4, R5, R6, R7, Kd, Kb, C, Vx);
+fflush(filename);
+fclose(filename);
+
+filename = 'ngspice_t24.txt'
+file = fopen(filename, 'w');
+fprintf (file, "Vs 1 0 0.0 ac 1.0 sin(0 1 1k)\nR1 1 2 %.11e\nR2 2 3 %.11e\nR3 2 5 %.11e\nR4 0 5 %.11e\nR5 5 6 %.11e\nR6 9 7 %.11e\nR7 7 8 %.11e\nVaux 0 9 0V\nHd 5 8 Vaux %.11e\nGb 6 3 (2,5) %.11e\nC1 6 8 %.11e\n\n.op\n\n.ic v(6) = %.11e v(8) = 0\n\n.end", R1, R2, R3, R4, R5, R6, R7, Kd, Kb, C, Vx);
+fflush(filename);
+fclose(filename);

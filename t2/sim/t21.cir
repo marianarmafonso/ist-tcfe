@@ -2,24 +2,7 @@
 
 .option savecurrents
 
-*Netlist
-Vs 1 0 DC 5.13988034104
-
-R1 1 2 1.00332071212k
-R2 2 3 2.04460853047k
-R3 2 5 3.08291730437k
-R4 0 5 4.16061678649k
-R5 5 6 3.04022345043k
-R6 0 4 2.06711403452k
-R7 7 8 1.03302701196k
-*C1 6 8 1.02475824097u
-
-*Vaux
-Vaux 4 7 0
-
-*Ib and Vd
-Hd 5 8 Vaux 8.16113797582k
-Gb 6 3 (2,5) 7.0544535009m
+.include ../mat/ngspice_t21.txt
 
 .control
 
