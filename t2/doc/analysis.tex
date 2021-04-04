@@ -277,6 +277,82 @@ $V_8$(t=0)     &  \partialinput{6}{6}{tabela2.tex}\\
 \end{small}
 \end{table}
 
+\noindent Having discovered nodes voltages, we need now to obtain the currents flowing in each resistance, 
+$I_b$ and currents in $V_s$ and $V_d$ branches, with the following equations:
+
+\begin{equation}
+I_b = K_b(V_2(t=0) - V_5(t=0))
+  \label{eq:Ib}
+\end{equation}
+
+\begin{equation}
+R_1[i] = -\frac{V_2(t=0)}{R_1}
+  \label{eq: iR10}
+\end{equation}
+
+\begin{equation}
+R_2[i] = \frac{(V_2(t=0) - V_3(t=0))}{R_2}
+  \label{eq: iR20}
+\end{equation}
+
+\begin{equation}
+R_3[i] = \frac{(V_2(t=0) - V_5(t=0))}{R_3}
+  \label{eq: iR30}
+\end{equation}
+
+\begin{equation}
+R_4[i] = \frac{-V_5(t=0)}{R_4}
+  \label{eq: iR40}
+\end{equation}
+
+\begin{equation}
+R_5[i] = \frac{(V_5(t=0) - V_6(t=0))}{R_5}
+  \label{eq: iR50}
+\end{equation}
+
+\begin{equation}
+R_6[i] = \frac{-V_7(t=0)}{R_6}
+  \label{eq: iR60}
+\end{equation}
+
+\begin{equation}
+R_7[i] = \frac{V_7(t=0) - V_8(t=0)}{R_7}
+  \label{eq: iR70}
+\end{equation}
+
+\begin{equation}
+v_s[i] = -R_1[i]
+  \label{eq: ivs0}
+\end{equation}
+
+\begin{equation}
+V_d[i] = R_3[i] + R_4[i] - R_5[i]
+  \label{eq: ivd0}
+\end{equation}
+
+\begin{table}[h!]
+\centering
+\begin{small}
+\caption{Branch currents for t = 0.} \label{Table100}
+\begin{tabular}{|c|c|}
+\hline
+Branch currents & Values obtained (Ampers)\\
+\hline
+$I_b$ & \partialinput{11}{11}{tabela2.tex} \\
+$R_1[i]$  & \partialinput{12}{12}{tabela2.tex}\\
+$R_2[i]$   & \partialinput{13}{13}{tabela2.tex} \\
+$R_3[i]$ & \partialinput{14}{14}{tabela2.tex} \\
+$R_4[i]$  & \partialinput{15}{15}{tabela2.tex} \\
+$R_5[i]$ & \partialinput{16}{16}{tabela2.tex}\\
+$R_6[i]$   & \partialinput{17}{17}{tabela2.tex} \\
+$R_7[i]$ & \partialinput{18}{18}{tabela2.tex} \\
+$v_s[i]$   & \partialinput{19}{19}{tabela2.tex} \\
+$V_d[i]$ & \partialinput{20}{20}{tabela2.tex} \\
+\hline
+\end{tabular}
+\end{small}
+\end{table}
+
 \noindent After this, we are able to compute $I_x$, since this current is given by, using KCL in node 6:
 \begin{equation}
 I_x = -\frac{(V_6(t=0) - V_5(t=0))}{R_5} - K_b(V_2(t=0) - V_5(t=0))
@@ -391,15 +467,10 @@ $V_8$(t > 0)& \partialinput{7}{7}{tabela6.tex}$e^{\partialinput{14}{14}{tabela6.
 
 \noindent To obtain the forced solution of $v_6$, the following expression can be used:
 \begin{equation}
-V_{6f}(t) = V_6(t > 0) cos(wt- phase)
+V_{6f}(t) = V_6(t > 0) sin(wt)
   \label{eq:v6fcomplete}
 \end{equation}
 
-\noindent In which the phase can be given by:
-\begin{equation}
-phase = atan (wR_{eq}C) - \frac{\pi}{2}
-\label{eq:v6fphase}
-\end{equation}
 
 \newpage
 \section{Total solution $v_6$(t)}
