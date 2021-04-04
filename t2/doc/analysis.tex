@@ -491,5 +491,34 @@ The third and last case, $v_s$ equals $sin(2\pi*f*t)$, as we can see by the expr
 \end{figure}
 
 \newpage
-\section{$v_sf$(f), $v_cf$(f), $v_6f$(f)}
+\section{Frequency Responses - $v_s$(f), $v_c$(f), $v_6$(f)}
+In this section we need to determine how the complex voltages $v_c$, $v_s$ and $v_6$ vary with different frequencies 
+and plot them in the same graph. As $v_1$ equals $v_s$ we do not have to include it in our next matricial system. 
+Also, if we look at the equations on it, the only voltages that depend on the frequency are $v_6$ and $v_8$. 
+If we rearrange that system to take that into account, we only need 4 equations to obtain the values that do not depend on the frequency. 
+That way, the following matrix can be found, using nodal method:
+
+$$ \left[ \begin{array}{cccc} - K_b -\frac{1}{R_2}  & \frac{1}{R_2} & K_b & 0 \\
+\frac{1}{R_3} - K_b & 0 & K_b -\frac{1}{R_3}-\frac{1}{R_4} & -\frac{1}{R_6} \\
+K_b-\frac{1}{R_1}-\frac{1}{R_3} & 0 & \frac{1}{R_3}-K_b & 0 
+\\ 0 & 0 & 1 & \frac{K_d - R_7}{R_6}-1\end{array} \right]
+\left[ \begin{array}{c} V_2 \\ V_3 \\ V_5 \\ V_7 \end{array} \right] = 
+\left[ \begin{array}{c} 0 \\ 0 \\ -v_sphasor \\ 0 \end{array} \right] $$
+For the matrix above, we have to take into account that:
+\begin{equation}
+v_sphasor = e^{-i\pi/2}
+\label{eq:vsphasor}
+\end{equation}
+
+\begin{figure}[h!] \centering
+\includegraphics[width=0.8\linewidth]{Phase(degrees).eps}
+\caption{Phase of $v_s$, $v_c$ and $v_6$ in function of frequency (Degrees).}
+\label{fig:phase}
+\end{figure}
+
+\begin{figure}[h!] \centering
+\includegraphics[width=0.8\linewidth]{MagnitudedB.eps}
+\caption{Magnitude of $v_s$, $v_c$ and $v_6$ in function of frequency (dB).}
+\label{fig:magnitude}
+\end{figure}
 

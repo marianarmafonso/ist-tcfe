@@ -5,7 +5,11 @@
 \BOOKMARK [1][-]{section.5}{5 Natural solution v6n\(t\)}{}% 5
 \BOOKMARK [1][-]{section.6}{6 Forced solution v6f\(t\)}{}% 6
 \BOOKMARK [1][-]{section.7}{7 Total solution v6\(t\)}{}% 7
-\BOOKMARK [1][-]{section.8}{8 vsf\(f\), vcf\(f\), v6f\(f\)}{}% 8
+\BOOKMARK [1][-]{section.8}{8 Frequency Responses - vs\(f\), vc\(f\), v6\(f\)}{}% 8
 \BOOKMARK [1][-]{section.9}{9 Simulation Analysis}{}% 9
-\BOOKMARK [2][-]{subsection.9.1}{9.1 Operating point analysis}{section.9}% 10
-\BOOKMARK [1][-]{section.10}{10 Conclusion}{}% 11
+\BOOKMARK [2][-]{subsection.9.1}{9.1 Simulation for t < 0}{section.9}% 10
+\BOOKMARK [2][-]{subsection.9.2}{9.2 Simulation for t = 0}{section.9}% 11
+\BOOKMARK [2][-]{subsection.9.3}{9.3 Natural response simulation}{section.9}% 12
+\BOOKMARK [2][-]{subsection.9.4}{9.4 Total response simulation}{section.9}% 13
+\BOOKMARK [2][-]{subsection.9.5}{9.5 Total response simulation}{section.9}% 14
+\BOOKMARK [1][-]{section.10}{10 Conclusion}{}% 15

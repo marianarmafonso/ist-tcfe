@@ -174,74 +174,62 @@ plot (t*1000, v_s, "g");
 legend("v6","v_s");
 xlabel('t[ms]');
 ylabel('V');
-title('Voltages as functions of time: v_s in grey and v_6 in black (Volts)');
+title('Voltages as functions of time: v_s and v_6 (Volts)');
 print (hg, "../doc/v6.eps");
 
-printf("\n\nPasso 6:\n");
-phi_vs = pi/2;
-vsp= 1*power(e,-j*phi_vs);
-f =-1:0.1:6; %Hz
-w = 2*pi*power(10,f);
+% ponto 6
+phasor_vs = 1*power(e,-i*pi/2);
+f6 = -1:1e-03:6; %Hz
+W = 2*pi*power(10,f6);
+Y_c = i .* W .* C;
+Z_c = 1. ./Y_c;
 
-vsp= 1*power(e,-j*phi_vs);
-Zc=1. ./ (j .* w .* C);
+X6 = [-Kb - G(2), G(2), Kb, Z;         
+     G(3)-Kb,  Z, Kb-G(3)-G(4), -G(6);
+     Kb-G(1)-G(3), Z, G(3)-Kb, Z;
+     Z, Z, O, Kd * G(6)- R7 * G(6)-O]; 
+y6 = [Z; Z; -phasor_vs * G(1); Z];
 
-N = [Kb+1./R2, -1./R2, -Kb, 0;
-     1./R3-Kb,  0, Kb-1./R3-1./R4, -1./R6;
-     Kb-1./R1-1./R3, 0, 1./R3-Kb, 0;
-     0, 0, 1., Kd/R6-R7/R6-1.];
-b = [0; 0; -vsp/R1; 0];
-
-V=linsolve(N,b); % v2, v3, v5, v7
+V6_maluco=X6\y6; % v2, v3, v5, v7
  
-v8 = R7*(1./R1+1./R6)*V(4) + 0*Zc;
-v6 = ((1./R5+Kb)*V(3)-Kb*V(1)+ (v8 ./ Zc)) ./ (1./R5 + 1. ./ Zc);
-vc = v6 - v8;
-vs = power(e,j*pi/2) + 0*w;
+v8 = R7*(G(1)+G(6))*V6_maluco(4) + Z*Z_c;
+v66 = ((G(5)+Kb)*V6_maluco(3)-Kb*V6_maluco(1)+ (v8 ./ Z_c)) ./ (G(5) + 1. ./ Z_c);
+vc6 = v66 - v8;
+vs6 = power(e,i*pi/2) + Z*W;
 
-#{
-Tvc= 1 ./ (1 + j*w*Req*C);
-Tv6= Tvc;
-
-vs = power(e,j*pi/2) + 0*w;
-vc = Tvc .* vs;
-v6 = vc + v8p;
-#}
-
-hf = figure ();
-plot (f, 20*log10(abs(vc)), "m");
-hold on;
-plot (f, 20*log10(abs(v6)), "b");
-hold on;
-plot (f, 20*log10(abs(vs)), "r");
-
-legend("vc","v6","vs");
-xlabel ("log_{10}(f) [Hz]");
-ylabel ("v^~_c(f), v^~_6(f), v^~_s(f) [dB]");
-print (hf, "theoretical_6_dB.eps", "-depsc");
-disp("\nfigure saved");
-
-av6 = 180/pi*(angle(v6));
-for  i=1:length(av6)
-	if(av6(i)<=-90) 
-		av6(i) += 180;
-	elseif (av6(i)>=90) 
-		av6(i) -= 180;
+phase_v66 = 180/pi*(angle(v66)); %in degrees
+for  var=1:length(phase_v66)
+	if(phase_v66(var)<= -90) 
+		phase_v66(var) = phase_v66(var) + 180;
+	elseif (phase_v66(var)>= 90) 
+		phase_v66(var) = phase_v66(var) - 180;
 endif
 endfor
 
-hf = figure ();
-plot (f, 180/pi*(angle(vc) + pi), "m");
-hold on;
-plot (f, av6, "b");
-hold on;
-plot (f, 180/pi*angle(vs), "r");
 
-legend("vc","v6","vs");
+hg = figure ();
+plot (f6, phase_v66, "b");
+hold on;
+plot (f6, 180/pi*(angle(vc6) + pi), "g");
+hold on;
+plot (f6, (180*angle(vs6))/pi, "m");
+
+legend("v_6","v_c","v_s");
 xlabel ("log_{10}(f) [Hz]");
 ylabel ("Phase v_c(f), v_6(f), v_s(f) [degrees]");
-print (hf, "theoretical_6_phase.eps", "-depsc");
-disp("\nfigure saved");
+print (hg, "../doc/Phase(degrees).eps");
+
+hj = figure ();
+plot (f6, 20*log10(abs(v66)), "b");
+hold on;
+plot (f6, 20*log10(abs(vs6)), "g");
+hold on;
+plot (f6, 20*log10(abs(vc6)), "m");
+
+legend("v_6","v_s","v_c");
+xlabel ("log_{10}(f) [Hz]");
+ylabel ("Magnitude v_c, v_6, v_s [dB]");
+print (hj, "../doc/MagnitudedB.eps");
 
 %ngspice
 

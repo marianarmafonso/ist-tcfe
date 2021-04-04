@@ -6,7 +6,11 @@
 \contentsline {section}{\numberline {5}Natural solution $v_6n$(t)}{9}{section.5}%
 \contentsline {section}{\numberline {6}Forced solution $v_6f$(t)}{10}{section.6}%
 \contentsline {section}{\numberline {7}Total solution $v_6$(t)}{11}{section.7}%
-\contentsline {section}{\numberline {8}$v_sf$(f), $v_cf$(f), $v_6f$(f)}{12}{section.8}%
+\contentsline {section}{\numberline {8}Frequency Responses - $v_s$(f), $v_c$(f), $v_6$(f)}{12}{section.8}%
 \contentsline {section}{\numberline {9}Simulation Analysis}{13}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Operating point analysis}{13}{subsection.9.1}%
-\contentsline {section}{\numberline {10}Conclusion}{14}{section.10}%
+\contentsline {subsection}{\numberline {9.1}Simulation for t < 0}{13}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Simulation for t = 0}{14}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Natural response simulation}{15}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Total response simulation}{16}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Total response simulation}{17}{subsection.9.5}%
+\contentsline {section}{\numberline {10}Conclusion}{18}{section.10}%

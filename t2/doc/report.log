@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  4 APR 2021 13:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  4 APR 2021 22:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -582,6 +582,12 @@ LaTeX Warning: Label `eq:Ib' multiply defined.
 
 LaTeX Warning: Label `eq:v6fcomplete' multiply defined.
 
+
+LaTeX Warning: Label `fig:phase' multiply defined.
+
+
+LaTeX Warning: Label `fig:magnitude' multiply defined.
+
 )
 \openout1 = `report.aux'.
 
@@ -781,7 +787,7 @@ Package microtype Info: Loading generic protrusion settings for font family
  (./frontcover.tex
 Package pdftex.def Info: Option `bb' equivalent to `viewport' with pdftex drive
 r on input line 15.
-<../../figlib/IST_A_CMYK_POS.pdf, id=48, 845.0471pt x 597.51233pt>
+<../../figlib/IST_A_CMYK_POS.pdf, id=64, 845.0471pt x 597.51233pt>
 File: ../../figlib/IST_A_CMYK_POS.pdf Graphic file (type pdf)
 <use ../../figlib/IST_A_CMYK_POS.pdf>
 Package pdftex.def Info: ../../figlib/IST_A_CMYK_POS.pdf  used on input line 15
@@ -796,7 +802,7 @@ Package pdftex.def Info: ../../figlib/IST_A_CMYK_POS.pdf  used on input line 15
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../../figlib/IST_A_CMYK_PO
 S.pdf>]
-<Circuit.pdf, id=93, 782.45082pt x 682.86612pt>
+<Circuit.pdf, id=113, 782.45082pt x 682.86612pt>
 File: Circuit.pdf Graphic file (type pdf)
 <use Circuit.pdf>
 Package pdftex.def Info: Circuit.pdf  used on input line 19.
@@ -837,16 +843,16 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 390.
 
 Package epstopdf Info: Source file: <v6n.eps>
-(epstopdf)                    date: 2021-04-04 13:08:23
+(epstopdf)                    date: 2021-04-04 18:43:16
 (epstopdf)                    size: 362777 bytes
 (epstopdf)             Output file: <v6n-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-04-04 13:08:36
+(epstopdf)                    date: 2021-04-04 18:43:23
 (epstopdf)                    size: 116659 bytes
 (epstopdf)             Command: <repstopdf --outfile=v6n-eps-converted-to.pdf v
 6n.eps>
 (epstopdf)             \includegraphics on input line 414.
 Package epstopdf Info: Output file is already uptodate.
-<v6n-eps-converted-to.pdf, id=208, 578.16pt x 433.62pt>
+<v6n-eps-converted-to.pdf, id=228, 578.16pt x 433.62pt>
 File: v6n-eps-converted-to.pdf Graphic file (type pdf)
 <use v6n-eps-converted-to.pdf>
 Package pdftex.def Info: v6n-eps-converted-to.pdf  used on input line 414.
@@ -883,16 +889,16 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 476.
 
 Package epstopdf Info: Source file: <v6.eps>
-(epstopdf)                    date: 2021-04-04 13:08:24
-(epstopdf)                    size: 898336 bytes
+(epstopdf)                    date: 2021-04-04 18:43:17
+(epstopdf)                    size: 898285 bytes
 (epstopdf)             Output file: <v6-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-04-04 13:08:38
-(epstopdf)                    size: 225198 bytes
+(epstopdf)                    date: 2021-04-04 18:43:25
+(epstopdf)                    size: 224896 bytes
 (epstopdf)             Command: <repstopdf --outfile=v6-eps-converted-to.pdf v6
 .eps>
 (epstopdf)             \includegraphics on input line 488.
 Package epstopdf Info: Output file is already uptodate.
-<v6-eps-converted-to.pdf, id=240, 578.16pt x 433.62pt>
+<v6-eps-converted-to.pdf, id=260, 578.16pt x 433.62pt>
 File: v6-eps-converted-to.pdf Graphic file (type pdf)
 <use v6-eps-converted-to.pdf>
 Package pdftex.def Info: v6-eps-converted-to.pdf  used on input line 488.
@@ -934,26 +940,92 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 494.
 
-) (./simulation.tex [12] (../sim/op_tab.tex)
+Package epstopdf Info: Source file: <Phase(degrees).eps>
+(epstopdf)                    date: 2021-04-04 18:43:18
+(epstopdf)                    size: 383040 bytes
+(epstopdf)             Output file: <Phase(degrees)-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-04-04 18:43:25
+(epstopdf)                    size: 88542 bytes
+(epstopdf)             Command: <repstopdf --outfile=Phase(degrees)-eps-convert
+ed-to.pdf Phase(degrees).eps>
+(epstopdf)             \includegraphics on input line 514.
+Package epstopdf Info: Output file is already uptodate.
+<Phase(degrees)-eps-converted-to.pdf, id=275, 578.16pt x 433.62pt>
+File: Phase(degrees)-eps-converted-to.pdf Graphic file (type pdf)
+<use Phase(degrees)-eps-converted-to.pdf>
+Package pdftex.def Info: Phase(degrees)-eps-converted-to.pdf  used on input lin
+e 514.
+(pdftex.def)             Requested size: 364.19667pt x 273.14235pt.
+Package epstopdf Info: Source file: <MagnitudedB.eps>
+(epstopdf)                    date: 2021-04-04 18:43:18
+(epstopdf)                    size: 376394 bytes
+(epstopdf)             Output file: <MagnitudedB-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-04-04 18:43:26
+(epstopdf)                    size: 72808 bytes
+(epstopdf)             Command: <repstopdf --outfile=MagnitudedB-eps-converted-
+to.pdf MagnitudedB.eps>
+(epstopdf)             \includegraphics on input line 520.
+Package epstopdf Info: Output file is already uptodate.
+<MagnitudedB-eps-converted-to.pdf, id=276, 578.16pt x 433.62pt>
+File: MagnitudedB-eps-converted-to.pdf Graphic file (type pdf)
+<use MagnitudedB-eps-converted-to.pdf>
+Package pdftex.def Info: MagnitudedB-eps-converted-to.pdf  used on input line 5
+20.
+(pdftex.def)             Requested size: 364.19667pt x 273.14235pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./simulation.tex [12 <./Phase(degrees)-eps-converted-to.pdf>]
+(../sim/op_tab.tex)
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 22.
- (../sim/op_tab2.tex)
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 17.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./conclusion.tex [13] (../sim/op_tab.tex) (../sim/op_tab2.tex)
+[13 <./MagnitudedB-eps-converted-to.pdf>] (../sim/op_tab2.tex)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-)
+[14]
+<../sim/trans.pdf, id=307, 597.23125pt x 845.1575pt>
+File: ../sim/trans.pdf Graphic file (type pdf)
+<use ../sim/trans.pdf>
+Package pdftex.def Info: ../sim/trans.pdf  used on input line 40.
+(pdftex.def)             Requested size: 199.16928pt x 281.84314pt.
+<../sim/trans2.pdf, id=308, 597.23125pt x 845.1575pt>
+File: ../sim/trans2.pdf Graphic file (type pdf)
+<use ../sim/trans2.pdf>
+Package pdftex.def Info: ../sim/trans2.pdf  used on input line 48.
+(pdftex.def)             Requested size: 227.62204pt x 322.1175pt.
+
+Underfull \vbox (badness 1789) has occurred while \output is active []
+
+ [15 <../sim/trans.pdf>] [16 <../sim/trans2.pdf>]
+<../sim/acp.pdf, id=331, 597.23125pt x 845.1575pt>
+File: ../sim/acp.pdf Graphic file (type pdf)
+<use ../sim/acp.pdf>
+Package pdftex.def Info: ../sim/acp.pdf  used on input line 57.
+(pdftex.def)             Requested size: 227.62204pt x 322.1175pt.
+<../sim/acm.pdf, id=332, 597.23125pt x 845.1575pt>
+File: ../sim/acm.pdf Graphic file (type pdf)
+<use ../sim/acm.pdf>
+Package pdftex.def Info: ../sim/acm.pdf  used on input line 63.
+(pdftex.def)             Requested size: 227.62204pt x 322.1175pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./conclusion.tex [17 <../sim/acp.pdf>] (../sim/op_tab.tex) [18 <../sim/acm.p
+df>] (../sim/op_tab2.tex))
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 205.
- [14] [15]
+ [19]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 205.
  (./report.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 205.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 205.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 31FF4B90DE6673B6CF22CC4F34000F5A;672.
+(rerunfilecheck)             Checksum: 3A22AB70C57D7D08E1F02B03354ABF1C;1000.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -961,11 +1033,11 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 205.
  ) 
 Here is how much of TeX's memory you used:
- 15511 strings out of 481239
- 282314 string characters out of 5920378
- 684230 words of memory out of 5000000
- 30275 multiletter control sequences out of 15000+600000
- 611002 words of font info for 142 fonts, out of 8000000 for 9000
+ 15589 strings out of 481239
+ 283725 string characters out of 5920378
+ 684570 words of memory out of 5000000
+ 30314 multiletter control sequences out of 15000+600000
+ 611752 words of font info for 154 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  41i,11n,42p,925b,743s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/
@@ -979,14 +1051,14 @@ e/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm
 fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/h
-elvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr
-o8a.pfb>
-Output written on report.pdf (15 pages, 736125 bytes).
+hare/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public
+/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on report.pdf (19 pages, 929228 bytes).
 PDF statistics:
- 355 PDF objects out of 1000 (max. 8388607)
- 289 compressed objects within 3 object streams
- 88 named destinations out of 1000 (max. 500000)
- 29805 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 446 PDF objects out of 1000 (max. 8388607)
+ 362 compressed objects within 4 object streams
+ 103 named destinations out of 1000 (max. 500000)
+ 29867 words of extra memory for PDF output out of 35830 (max. 10000000)
 
