@@ -73,10 +73,22 @@ V5t0 = Vt0(3);
 V6t0 = Vt0(4);
 V7t0 = Vt0(5);
 V8t0 = -Vt0(6);
+Ibt0 = Kb * (V2t0 - V5t0);
+IR1t0 = ( V2t0) * G(1);
+IR2t0 = (V2t0 - V3t0) * G(2);
+IR3t0 = (V2t0 - V5t0) * G(3);
+IR4t0 = (V5t0) * G(4);
+IR5t0 = (V5t0 - V6t0) * G(5);
+IR6t0 = (V7t0) * G(6);
+IR7t0 = (V7t0 - V8t0) * G(7);
+IVst0 = IR1t0;
+IVdt0 = IR3t0 - IR5t0 + IR4t0;
+
 Ix = -(V6t0 - V5t0)*G(5) - Kb*(V2t0 - V5t0);
 Req = abs(Vx/Ix);
 tau = Req * C;
-save("-ascii","../doc/tabela2.tex","V2t0","V3t0","V5t0","V6t0","V7t0","V8t0","Vx", "Ix", "Req", "tau");
+save("-ascii","../doc/tabela2.tex","V2t0","V3t0","V5t0","V6t0","V7t0","V8t0","Vx", "Ix", "Req", "tau", "Ibt0",
+"IR1t0","IR2t0", "IR3t0", "IR4t0","IR5t0", "IR6t0", "IR7t0", "IVst0", "IVdt0");
 
 % ponto 3
 syms t;
@@ -137,7 +149,7 @@ syms Vf6(t);
 
 t=0:1e-6:20e-3;
 %phase= atan(w*Req*C) - (pi)/2 ;
-Vf6 = V_amplitude(5) * sin(w*t) ; %solução forçada
+Vf6 = V_amplitude(5) * sin(w*t); %solução forçada
 t=0:1e-6:20e-3;
 vs = u * sin(w*t);
 
@@ -159,11 +171,13 @@ hg =  figure();
 plot (t*1000, v6, "b");
 hold on;
 plot (t*1000, v_s, "g");
+legend("v6","v_s");
 xlabel('t[ms]');
 ylabel('V');
 title('Voltages as functions of time: v_s in grey and v_6 in black (Volts)');
 print (hg, "../doc/v6.eps");
 
+<<<<<<< HEAD
 % ponto 6
 numer= [0, 1];
 denom= [Req*C,1];
@@ -175,6 +189,73 @@ w= logspace(-1, 6, 200);
 figure
 bode(vc, vs, w);
 print("lab2_bode.png", "-dpng");
+=======
+printf("\n\nPasso 6:\n");
+phi_vs = pi/2;
+vsp= 1*power(e,-j*phi_vs);
+f =-1:0.1:6; %Hz
+w = 2*pi*power(10,f);
+
+vsp= 1*power(e,-j*phi_vs);
+Zc=1. ./ (j .* w .* C);
+
+N = [Kb+1./R2, -1./R2, -Kb, 0;
+     1./R3-Kb,  0, Kb-1./R3-1./R4, -1./R6;
+     Kb-1./R1-1./R3, 0, 1./R3-Kb, 0;
+     0, 0, 1., Kd/R6-R7/R6-1.];
+b = [0; 0; -vsp/R1; 0];
+
+V=linsolve(N,b); % v2, v3, v5, v7
+ 
+v8 = R7*(1./R1+1./R6)*V(4) + 0*Zc;
+v6 = ((1./R5+Kb)*V(3)-Kb*V(1)+ (v8 ./ Zc)) ./ (1./R5 + 1. ./ Zc);
+vc = v6 - v8;
+vs = power(e,j*pi/2) + 0*w;
+
+#{
+Tvc= 1 ./ (1 + j*w*Req*C);
+Tv6= Tvc;
+
+vs = power(e,j*pi/2) + 0*w;
+vc = Tvc .* vs;
+v6 = vc + v8p;
+#}
+
+hf = figure ();
+plot (f, 20*log10(abs(vc)), "m");
+hold on;
+plot (f, 20*log10(abs(v6)), "b");
+hold on;
+plot (f, 20*log10(abs(vs)), "r");
+
+legend("vc","v6","vs");
+xlabel ("log_{10}(f) [Hz]");
+ylabel ("v^~_c(f), v^~_6(f), v^~_s(f) [dB]");
+print (hf, "theoretical_6_dB.eps", "-depsc");
+disp("\nfigure saved");
+
+av6 = 180/pi*(angle(v6));
+for  i=1:length(av6)
+	if(av6(i)<=-90) 
+		av6(i) += 180;
+	elseif (av6(i)>=90) 
+		av6(i) -= 180;
+endif
+endfor
+
+hf = figure ();
+plot (f, 180/pi*(angle(vc) + pi), "m");
+hold on;
+plot (f, av6, "b");
+hold on;
+plot (f, 180/pi*angle(vs), "r");
+
+legend("vc","v6","vs");
+xlabel ("log_{10}(f) [Hz]");
+ylabel ("Phase v_c(f), v_6(f), v_s(f) [degrees]");
+print (hf, "theoretical_6_phase.eps", "-depsc");
+disp("\nfigure saved");
+>>>>>>> 0b38fd4aaa9c7429b32648813d4fc5cd3035614a
 
 %ngspice
 
