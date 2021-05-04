@@ -24,7 +24,7 @@ $(FILE).pdf: $(wildcard *.tex) $(LODFIGS)
 
 clean:
 	@rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
-	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.png ./*.eps *tabelaVal.tex *tabela1.tex *tabela2.tex *tabela6.tex
+	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.png ./*.eps *tabelaValues.tex *tabela1.tex
 
 .PHONY: all clean
 

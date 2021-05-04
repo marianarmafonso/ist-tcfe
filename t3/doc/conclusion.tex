@@ -1,75 +1,31 @@
 \newpage
 \section{Conclusion}
 \label{sec:conclusion}
-In order to analysis the exactness or discrepancies in the theoretical analysis and the simulation, the following tables made with ngspice and octave were presented.
+In order to analysis the similarities or discrepancies in the theoretical analysis and the simulation, the following tables made with ngspice and octave are presented.
+
 \begin{table}[h!]
   \centering
   \begin{tabular}{|c|c|}
     \hline    
-    {\bf Name} & {\bf Value [A or V]} \\ \hline
-    \input{../sim/op_tab}
+    {\bf Name} & {\bf Value} \\ \hline
+    \input{../sim/op_tab1}
   \end{tabular}
  \begin{tabular}{|c|c|}
  \hline
  \centering
-    {\bf Name} & {\bf Value [A or V]} \\ 
+    {\bf Name} & {\bf Value} \\ 
     \hline
-$I_c$ & 0 \\
-$I_b$ & \partialinput{8}{8}{tabela1.tex} \\
-$R_1[i]$  & \partialinput{9}{9}{tabela1.tex}\\
-$R_2[i]$   & \partialinput{10}{10}{tabela1.tex} \\
-$R_3[i]$ & \partialinput{11}{11}{tabela1.tex} \\
-$R_4[i]$  & \partialinput{12}{12}{tabela1.tex} \\
-$R_5[i]$ & \partialinput{13}{13}{tabela1.tex}\\
-$R_6[i]$   & \partialinput{14}{14}{tabela1.tex} \\
-$R_7[i]$ & \partialinput{15}{15}{tabela1.tex} \\
-$V_1$           & \partialinput{1}{1}{tabela1.tex} \\
-$V_2$  & \partialinput{2}{2}{tabela1.tex}\\
-$V_3$   & \partialinput{3}{3}{tabela1.tex} \\
-$V_5$  & \partialinput{4}{4}{tabela1.tex} \\
-$V_6$   & \partialinput{5}{5}{tabela1.tex} \\
-$V_7$    & \partialinput{6}{6}{tabela1.tex} \\
-$V_8$     &  \partialinput{7}{7}{tabela1.tex}\\
+$average(v_O)$  & \partialinput{1}{1}{tabela1.tex}\\
+$Ripple$   & \partialinput{2}{2}{tabela1.tex} \\
+$average(|v_O - 12)|)$   & \partialinput{3}{3}{tabela1.tex} \\
+$cost$    & \partialinput{4}{4}{tabela1.tex} \\
+$Merit$    & \partialinput{5}{5}{tabela1.tex} \\
 \hline
  \end{tabular}
- \caption{Simulation (right) and Theoretical (left) Node Voltages and Branch currents t < 0.}
-  \label{tab:conc1}
-\end{table}
-\newpage
-\begin{table}[h!]
-  \centering
-  \begin{tabular}{|c|c|}
-    \hline    
-    {\bf Name} & {\bf Value [A or V]} \\ \hline
-    \input{../sim/op_tab2}
-  \end{tabular}
- \begin{tabular}{|c|c|}
- \hline
- \centering
-    {\bf Name} & {\bf Value [A or V]} \\ 
-    \hline
-$I_b$ & \partialinput{11}{11}{tabela2.tex} \\
-$R_1[i]$  & \partialinput{12}{12}{tabela2.tex}\\
-$R_2[i]$   & \partialinput{13}{13}{tabela2.tex} \\
-$R_3[i]$ & \partialinput{14}{14}{tabela2.tex} \\
-$R_4[i]$  & \partialinput{15}{15}{tabela2.tex} \\
-$R_5[i]$ & \partialinput{16}{16}{tabela2.tex}\\
-$R_6[i]$   & \partialinput{17}{17}{tabela2.tex} \\
-$R_7[i]$ & \partialinput{18}{18}{tabela2.tex} \\
-$V_1$(t=0)  & 0\\
-$V_2$(t=0)  & \partialinput{1}{1}{tabela2.tex}\\
-$V_3$(t=0)   & \partialinput{2}{2}{tabela2.tex} \\
-$V_5$(t=0)   & \partialinput{3}{3}{tabela2.tex} \\
-$V_6$(t=0)    & \partialinput{4}{4}{tabela2.tex} \\
-$V_7$(t=0)     & \partialinput{5}{5}{tabela2.tex} \\
-$V_8$(t=0)     &  \partialinput{6}{6}{tabela2.tex}\\
-\hline
- \end{tabular}
- \caption{Simulation (right) and Theoretical (left) Node Voltages and Branch currents t = 0.}
+ \caption{Simulation (right) and Theoretical (left) results obtained.}
   \label{tab:conc2}
 \end{table}
 
-\noindent Comparing the theoretical and the simulation values, they are very almost the same only differing in the number of decimal places. Nonetheless, these approximation differences are negligible, regarding the low complexity of the circuit in analysis. Furthermore, the results obtained in the graphs obtained through ngspice and octave are also very similar.
-\noindent Taking all this into account, the theorical analysis showed coherent values relative to the simulation, proving that the theoretical analysis of this circuit is accurate.
-
+\noindent Comparing the values obtained in Octave and Ngspice, the most significant discrepancy observed is the ripple value, where the octave's ripple is about 10 times lower than the simulation's ripple. This is due to the fact that the model used for diodes in ngspice is significantly more complex than the model used in octave. Also, we can observe a huge difference in the orders of magnitude of the |$v_O$ - 12| value, since ngspice's value is about $10^{9}$ greater than the octave's. This can be explained by the difference in the precision of ngspice and octave floating points. However, since they are both very small values, this difference is negligible. Therefore, this explains the fact that the merit in simulation (5.055688) is lower than the merit in the theoretical analysis (81.9172230). Actually, the octave's merit has no meaning, because it is in the simulation that we are interested, since it is the best approximation of the reality. As for the graphs, the results obtained through ngspice and octave are very similar.
+\noindent Taking all this into account, both analysis were still able to create a circuit that transforms the input AC Voltage of 230V and a frequency of 50Hz into an output DC voltage of 12V, even if the octave's model is not the best representation of the reality.
 

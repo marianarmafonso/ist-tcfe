@@ -1,0 +1,95 @@
+*Title: lab 3 simulation
+
+.option savecurrents
+
+*Source
+Vin 3 1 SIN(0 102.632 50 0 0 -90)
+ 
+*Envelope Detector
+D1 1 2 default
+D2 0 3 default
+D3 3 2 default
+D4 0 1 default
+
+C1 2 0 400u
+R1 2 0 400k
+
+*Voltage Regulator
+R2 2 4 57k
+D1v 4 0 default_diodes
+
+.model default D
+.model default_diodes D (n=18)
+
+.end 
+
+.op
+
+.control
+
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+op
+
+echo "********************************************"
+echo  "Transient analysis"
+echo "********************************************"
+tran 1e-5 0.3 0.1
+
+meas trans Vavrg AVG v(4) from=100m to=300m
+meas trans Vmax MAX v(4) from=100m to=300m
+meas trans Vmin MIN v(4) from=100m to=300m
+
+print Vavrg Vmax Vmin
+
+let ndiodes = 18
+let n = 230/102.632
+let C1 = 400u
+let Renv = 400k
+let Rreg = 57k
+
+echo  "op_TAB"
+print ndiodes
+print n
+print C1
+print Renv
+print Rreg
+echo  "op_END"
+
+let cost = 57 + 400 + 400 + 18*0.1 + 0.4
+let mean = {abs(mean(v(4))-12)}
+let ripple = {maximum(v(4))-minimum(v(4))}
+set denom = {((57 + 400 + 400 + 18*0.1 + 0.4)*(abs(mean(v(4))-12)+(maximum(v(4))-minimum(v(4)))+1e-6))}
+let merit = {($denom)^(-1)}
+
+echo  "op_TAB1"
+print Vavrg
+print ripple
+print mean
+print cost
+print merit
+echo  "op_END1"
+
+hardcopy env.ps v(2)
+echo env_FIG
+
+hardcopy out.ps v(4)
+echo out_FIG
+
+hardcopy error.ps v(4)-12
+echo error_FIG
+
+hardcopy test.ps v(1)-v(3) v(2) v(4) 
+echo test_FIG
+
+
+quit
+.endc
