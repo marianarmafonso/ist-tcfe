@@ -1,0 +1,46 @@
+\newpage
+\section{Simulation Analysis}
+\label{sec:simulation}
+This section covers circuit simulation in ngspice, where the transient analysis was performed and the following graphs were plotted along with a table, 
+that contains the results of this simulation.
+\newpage
+\begin{figure}[h!] \centering
+\includegraphics[width=7.5cm]{../sim/env.pdf}
+\caption{Output voltage for the envelope detector (Volts).}
+\label{fig:envelope}
+\end{figure}
+
+\begin{figure}[h!] \centering
+\includegraphics[width=7.5cm]{../sim/out.pdf}
+\caption{Output voltage for the voltage regulator (Volts).}
+\label{fig:regulator}
+\end{figure}
+
+\begin{figure}[h!] \centering
+\includegraphics[width=7.5cm]{../sim/error.pdf}
+\caption{$v_O$ - 12 (Volts).}
+\label{fig: vo - 12}
+\end{figure}
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Name} & {\bf Value} \\ \hline
+    \input{../sim/op_tab}
+  \end{tabular}
+ \begin{tabular}{|c|c|}
+ \hline
+ \centering
+    {\bf Name} & {\bf Value [A or V]} \\ 
+    \hline
+    \input{../sim/op_tab1}
+\hline
+ \end{tabular}
+ \caption{Parametres used (left) and results obtained (right) in the simulation.}
+  \label{tab:optabs}
+\end{table}
+
+
+
+
