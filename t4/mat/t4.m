@@ -8,14 +8,14 @@ VT=25e-3;
 BFN=178.7;
 VAFN=69.7;
 RE1=100;
-RC1=1100;
-RB1=145000;
+RC1=571;
+RB1=125050;
 RB2=20000;
 VBEON=0.7;
 VCC=12;
 RS=100;
-Ci = 1e-3;
-Cb = 3e-3;
+Ci = 4.5e-4;
+Cb = 4.465e-3;
 
 %DC analysis
 RB=1/(1/RB1+1/RB2);
@@ -49,7 +49,7 @@ BFP = 227.3;
 VAFP = 37.2;
 RE2 = 100;
 VEBON = 0.7;
-Co = 1.75e-3;
+Co = 1.806e-3;
 
 %DC analysis
 VI2 = VO1;
@@ -85,7 +85,7 @@ lco = (1/(2*pi))*((1/(ZO*Co)) + (1/(ZI*Ci)) + (1/(Zb*Cb)));
 n_transistors = 2;
 cost1 = (0.1*n_transistors + (Ci + Cb + Co)*10e6 + (RE1 + RE2 + RC1 + RB1 + RB2 + RS)*10e-3);
 in = 0;
-cost = 5916.6;
+cost = 68671.21;
 in2 = 0;
 out = 0;
 save("-ascii","../doc/tabelaN.tex", "VEQ", "VO1", "VE1", "VO2", "in", "in2", "out", "VCC");

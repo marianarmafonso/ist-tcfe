@@ -9,19 +9,19 @@ Vin in 0 0 ac 1.0 sin(0 10m 1k)
 Rin in in2 100
 
 * input coupling capacitor
-Ci in2 base 1m
+Ci in2 base 0.45m
 
 * bias circuit
-R1 vcc base 145k
+R1 vcc base 125.05k
 R2 base 0 20k
 
 * gain stage
 Q1 coll base emit BC547A
-Rc vcc coll 1.1k
+Rc vcc coll 0.571k
 Re emit 0 100
 
 * bypass capacitor
-Cb emit 0 3m
+Cb emit 0 4.465m
 
 
 * output stage
@@ -29,7 +29,7 @@ Q2 0 coll emit2 BC557A
 Rout emit2 vcc 100
 
 * output coupling capacitor
-Co emit2 out 1.75m
+Co emit2 out 1.806m
 
 * load
 RL out 0 8
@@ -97,8 +97,8 @@ echo zin_FIG
 *calculate merit 
 let gain = vecmax(abs(v(out)/v(in)))
 let bandwidth = upper - lower
-let cost = 100/1000 + 1e-3*1e6 + 145e3/1000 + 20e3/1000 + 1.1e3/1000 + 100/1000 + 3e-3*1e6 + 100/1000 + 1.75e-3*1e6 + 2*0.1
-let merit = vecmax(abs(v(out)/v(in))) * (upper - lower) / lower / (100/1000 + 1e-3*1e6 + 145e3/1000 + 20e3/1000 + 1.1e3/1000 + 100/1000 + 3e-3*1e6 + 100/1000 + 1.75e-3*1e6 + 2*0.1)
+let cost = 100/1000 + 1.8060e-3*1e6 + 125.05e3/1000 + 20e3/1000 + 0.571e3/1000 + 100/1000 + 4.465e-3*1e6 + 100/1000 + 0.45e-3*1e6 + 2*0.1
+let merit = vecmax(abs(v(out)/v(in))) * (upper - lower) / lower / (100/1000 + 1.8060e-3*1e6 + 125.05e3/1000 + 20e3/1000 + 0.571e3/1000 + 100/1000 + 4.465e-3*1e6 + 100/1000 + 0.45e-3*1e6 + 2*0.1)
 
 *print frequencies, impedancies, gain and merit
 
