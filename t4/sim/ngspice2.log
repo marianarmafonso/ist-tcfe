@@ -1,0 +1,44 @@
+
+Circuit: *lab 4_out
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 1
+@cb[i] = 0.000000e+00
+@ci[i] = 0.000000e+00
+@co[i] = 0.000000e+00
+@q1[ib] = 2.122706e-05
+@q1[ic] = 3.969454e-03
+@q1[ie] = -3.99068e-03
+@q1[is] = 7.830434e-12
+@q2[ib] = 1.812873e-04
+@q2[ic] = 3.391398e-02
+@q2[ie] = -3.40953e-02
+@q2[is] = -7.83320e-12
+@r1[i] = 7.530025e-05
+@r2[i] = 5.407319e-05
+@rc[i] = 3.788166e-03
+@re[i] = 3.990681e-03
+@rout[i] = -3.40953e-02
+base = 1.081464e+00
+coll = 7.833017e+00
+emit = 3.990681e-01
+emit2 = 8.590473e+00
+in2 = 0.000000e+00
+out = 0.000000e+00
+vcc = 1.200000e+01
+vcc#branch = -3.79587e-02
+vin#branch = 0.000000e+00
+vo#branch = 0.000000e+00
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 71
+
+The file "zout.ps" may be printed on a postscript printer.
+zout_FIG
+op_TAB2
+zout = 7.866317e+00
+op_END2
+ngspice-31 done

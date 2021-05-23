@@ -12,16 +12,16 @@ Rin in in2 100
 Ci in2 base 1m
 
 * bias circuit
-R1 vcc base 80k
+R1 vcc base 145k
 R2 base 0 20k
 
 * gain stage
 Q1 coll base emit BC547A
-Rc vcc coll 1k
+Rc vcc coll 1.1k
 Re emit 0 100
 
 * bypass capacitor
-Cb emit 0 1m
+Cb emit 0 3m
 
 
 * output stage
@@ -29,7 +29,7 @@ Q2 0 coll emit2 BC557A
 Rout emit2 vcc 100
 
 * output coupling capacitor
-Co emit2 out 1u
+Co emit2 out 1.75m
 
 * load
 RL out 0 8
@@ -39,29 +39,72 @@ RL out 0 8
 
 .control
 
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+op
+
+echo "********************************************"
+echo  "Operating point"
+echo "********************************************"
+
+echo  "op_TAB"
 print all
+echo  "op_END"
 
-* time analysis
+
+echo "********************************************"
+echo  "Time analysis"
+echo "********************************************"
+
 tran 1e-5 1e-2
-plot v(coll)
-hardcopy vo1.ps vdb(coll)
+*plot v(coll)
+*hardcopy vo1.ps vdb(coll)
 
+echo "********************************************"
+echo  "frequency analysis"
+echo "********************************************"
 
-* frequency analysis
 ac dec 10 10 100MEG
-plot vdb(coll)
-plot vp(coll)
-hardcopy vo1f.ps vdb(coll)
+*plot vdb(coll)
+*plot vp(coll)
+*hardcopy vo1f.ps vdb(coll)
 
+*plot vdb(out)
+*plot vp(out)
+hardcopy vo2f.ps vdb(out)
+echo vo2f_FIG
 
+*calculate cutoff frequency
+let limit = vecmax(vdb(out))-3
+meas ac lower WHEN vdb(out) = limit RISE = 1
+meas ac upper WHEN vdb(out) = limit CROSS = LAST
 
-plot vdb(out)
-plot vp(out)
-hardcopy vo2f.ps vdb(coll)
 
 *input impedance in kohm
-print v(in2)[40]/(v(in)[40]-v(in2)[40])/100*1000
+let zin1 = -v(in2)/vin#branch
+let zin = abs(zin1[40])
+hardcopy zin.ps abs(v(in2)/vin#branch/(-1000))
+echo zin_FIG
 
-*need a different setup to measure output impedance
+*calculate merit 
+let gain = vecmax(abs(v(out)/v(in)))
+let bandwidth = upper - lower
+let cost = 100/1000 + 1e-3*1e6 + 145e3/1000 + 20e3/1000 + 1.1e3/1000 + 100/1000 + 3e-3*1e6 + 100/1000 + 1.75e-3*1e6 + 2*0.1
+let merit = vecmax(abs(v(out)/v(in))) * (upper - lower) / lower / (100/1000 + 1e-3*1e6 + 145e3/1000 + 20e3/1000 + 1.1e3/1000 + 100/1000 + 3e-3*1e6 + 100/1000 + 1.75e-3*1e6 + 2*0.1)
 
+*print frequencies, impedancies, gain and merit
+
+echo  "op_TAB1"
+print gain lower upper bandwidth zin cost merit
+echo  "op_END1"
+
+quit
 .endc 

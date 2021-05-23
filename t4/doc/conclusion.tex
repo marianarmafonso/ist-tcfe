@@ -8,24 +8,52 @@ In order to analysis the similarities or discrepancies in the theoretical analys
   \begin{tabular}{|c|c|}
     \hline    
     {\bf Name} & {\bf Value} \\ \hline
-    \input{../sim/op_tab1}
+    \input{../sim/op_tab}
   \end{tabular}
  \begin{tabular}{|c|c|}
  \hline
  \centering
     {\bf Name} & {\bf Value} \\ 
     \hline
-$average(v_O)$  & \partialinput{1}{1}{tabela1.tex}\\
-$Ripple$   & \partialinput{2}{2}{tabela1.tex} \\
-$average(|v_O - 12)|)$   & \partialinput{3}{3}{tabela1.tex} \\
-$cost$    & \partialinput{4}{4}{tabela1.tex} \\
-$Merit$    & \partialinput{5}{5}{tabela1.tex} \\
+$base$  & \partialinput{1}{1}{tabelaN.tex}\\
+$coll$   & \partialinput{2}{2}{tabelaN.tex} \\
+$emitter1$   & \partialinput{3}{3}{tabelaN.tex} \\
+$emitter2$    & \partialinput{4}{4}{tabelaN.tex} \\
+$in$    & \partialinput{5}{5}{tabelaN.tex} \\
+$in2$    & \partialinput{6}{6}{tabelaN.tex} \\
+$out$    & \partialinput{7}{7}{tabelaN.tex} \\
+$Vcc$    & \partialinput{8}{8}{tabelaN.tex} \\
 \hline
  \end{tabular}
- \caption{Simulation (left) and Theoretical (right) results obtained.}
+ \caption{Simulation (left) and Theoretical (right) operating point results.}
   \label{tab:conc2}
 \end{table}
 
-\noindent Comparing the values obtained in Octave and Ngspice, the most significant discrepancy observed is the ripple value, where the octave's ripple is about 10 times lower than the simulation's ripple. This is due to the fact that the model used for diodes in ngspice is significantly more complex than the model used in octave. Also, we can observe a huge difference in the orders of magnitude of the |$v_O$ - 12| value, since ngspice's value is about $10^{9}$ greater than the octave's. This can be explained by the difference in the precision of ngspice and octave floating points. However, since they are both very small values, this difference is negligible. Therefore, this explains the fact that the merit in simulation (5.055688) is lower than the merit in the theoretical analysis (81.9172230). Actually, the octave's merit has no meaning, because it is in the simulation that we are interested, since it is the best approximation of the reality. As for the graphs, the results obtained through ngspice and octave are very similar.
-\noindent Taking all this into account, both analysis were still able to create a circuit that transforms the input AC Voltage of 230V and a frequency of 50Hz into an output DC voltage of 12V, even if the octave's model is not the best representation of the reality.
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Name} & {\bf Value} \\ \hline
+    \input{../sim/op_tab1}
+    \input{../sim/op_tab2}
+  \end{tabular}
+ \begin{tabular}{|c|c|}
+ \hline
+ \centering
+    {\bf Name} & {\bf Value} \\ 
+    \hline
+$TotalGain$  & \partialinput{3}{3}{tabelaRes.tex}\\
+$LowerCutoffFrequency$   & \partialinput{2}{2}{tabelaRes.tex} \\
+$Bandwidth$   & $\infty$ \\
+$cost$    & \partialinput{1}{1}{tabelaRes.tex} \\
+$ImputImpedance$    & \partialinput{4}{4}{tabelaRes.tex} \\
+$OutputImpedance$    & \partialinput{5}{5}{tabelaRes.tex} \\
+\hline
+ \end{tabular}
+ \caption{Simulation (left) and Theoretical (right) results obtained.}
+  \label{tab:conc1}
+\end{table}
+
+\noindent Comparing the values obtained in Octave and Ngspice, the values obtained in the operating point analysis are similar. However, the values obtained in the second table are notably different. This can be explained due to the fact that the transistor models used in ngspice are significantly more complex than the models used in the theoretical analysis.
+\noindent Taking this into account, both analysis were still able to create an audio amplifier circuit, even if the octave's model is not the best representation of the reality.
 

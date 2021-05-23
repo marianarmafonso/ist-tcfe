@@ -1,3 +1,5 @@
+*Lab 4_out
+
 .options savecurrents
 
 * PHILIPS BJT'S
@@ -5,63 +7,60 @@
 .MODEL BC547A NPN(IS=1.533E-14 ISE=7.932E-16 ISC=8.305E-14 XTI=3 BF=178.7 BR=8.628 IKF=0.1216 IKR=0.1121 XTB=1.5 VAF=69.7 VAR=44.7 VJE=0.4209 VJC=0.2 RE=0.6395 RC=0.6508 RB=1 RBM=1 IRB=1E-06 CJE=1.61E-11 CJC=4.388p XCJC=0.6193 FC=0.7762 NF=1.002 NR=1.004 NE=1.436 NC=1.207 MJE=0.3071 MJC=0.2793 TF=4.995E-10 TR=1m2 ITF=0.7021 VTF=3.523 XTF=139 EG=1.11)
 
 Vcc vcc 0 12.0
-Vin in 0 0 ac 1.0 sin(0 10m 1k)
-Rin in in2 100
+Vin in2 0 0
 
 * input coupling capacitor
 Ci in2 base 1m
 
 * bias circuit
-R1 vcc base 80k
+R1 vcc base 145k
 R2 base 0 20k
 
 * gain stage
 Q1 coll base emit BC547A
-Rc vcc coll 1k
+Rc vcc coll 1.1k
 Re emit 0 100
 
 * bypass capacitor
-Cb emit 0 1m
-
+Cb emit 0 3m
 
 * output stage
 Q2 0 coll emit2 BC557A
 Rout emit2 vcc 100
 
 * output coupling capacitor
-Co emit2 out 1u
-
-* load
-RL out 0 8
+Co emit2 out 1.75m
+Vo out 0 0 ac 1 sin(0 1 1k)
 
 .op
 .end
 
 .control
 
+op
 print all
 
-* time analysis
-tran 1e-5 1e-2
-plot v(coll)
-hardcopy vo1.ps vdb(coll)
-
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
 
 * frequency analysis
 ac dec 10 10 100MEG
-plot vdb(coll)
-plot vp(coll)
-hardcopy vo1f.ps vdb(coll)
+let Zo = -v(out)/Vo#branch
+hardcopy zout.ps abs(Zo)
+echo zout_FIG
 
+let Zout = abs(Zo[40])
 
+echo  "op_TAB2"
+print Zout 
+echo  "op_END2"
 
-plot vdb(out)
-plot vp(out)
-hardcopy vo2f.ps vdb(coll)
-
-*input impedance in kohm
-print v(in2)[40]/(v(in)[40]-v(in2)[40])/100*1000
-
-*need a different setup to measure output impedance
-
+quit
 .endc 

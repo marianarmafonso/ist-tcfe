@@ -1,46 +1,39 @@
 \newpage
 \section{Simulation Analysis}
 \label{sec:simulation}
-This section covers circuit simulation in ngspice, where the transient analysis was performed and the following graphs were plotted along with a table, 
-that contains the results of this simulation.
-\newpage
-\begin{figure}[h!] \centering
-\includegraphics[width=7.5cm]{../sim/env.pdf}
-\caption{Output voltage for the envelope detector (Volts).}
-\label{fig:envelope}
-\end{figure}
+This section covers circuit simulation in ngspice, where the output voltage gain, the lower and upper cutoff frequencies and the input and output impedances were measured. However, in order to calculate the output impedance of the whole circuit, a different circuit had to be used. In this circuit the voltage source $V_in$ and the resistance $R_in$ were replaced by a short circuit and the load $R_L$ was replaced by a voltage source $V_o$.
 
-\begin{figure}[h!] \centering
-\includegraphics[width=7.5cm]{../sim/out.pdf}
-\caption{Output voltage for the voltage regulator (Volts).}
-\label{fig:regulator}
-\end{figure}
-
-\begin{figure}[h!] \centering
-\includegraphics[width=7.5cm]{../sim/error.pdf}
-\caption{$v_O$ - 12 (Volts).}
-\label{fig: vo - 12}
-\end{figure}
+In the following table gain, the cutoff frequencies, the bandwidth, the input and output impedances and the cost and merit of the circuit are presented. Furthermore, the graphs also show the frequency response of the output voltage gain and input and output impedances.
 
 \begin{table}[h!]
   \centering
   \begin{tabular}{|c|c|}
     \hline    
     {\bf Name} & {\bf Value} \\ \hline
-    \input{../sim/op_tab}
-  \end{tabular}
- \begin{tabular}{|c|c|}
- \hline
- \centering
-    {\bf Name} & {\bf Value [A or V]} \\ 
-    \hline
     \input{../sim/op_tab1}
-\hline
- \end{tabular}
- \caption{Parametres used (left) and results obtained (right) in the simulation.}
+    \input{../sim/op_tab2}
+  \end{tabular}
+ \caption{Measured values (gain, cutoff frequencies, bandwidth, input and output impedances and the cost and merit of the circuit).}
   \label{tab:optabs}
 \end{table}
 
+\begin{figure}[h!] \centering
+\includegraphics[width=7.5cm]{../sim/vo2f.pdf}
+\caption{Frequency response of the output voltage gain in the passband.}
+\label{fig:output voltage gain}
+\end{figure}
+
+\begin{figure}[h!] \centering
+\includegraphics[width=7.5cm]{../sim/zin.pdf}
+\caption{Frequency response of the input impedance of the circuit.}
+\label{fig:input impedance}
+\end{figure}
+
+\begin{figure}[h!] \centering
+\includegraphics[width=7.5cm]{../sim/zout.pdf}
+\caption{Frequency response of the output impedance of the circuit.}
+\label{fig: output impedance}
+\end{figure}
 
 
 

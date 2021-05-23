@@ -1,0 +1,71 @@
+
+Circuit: .options savecurrents
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 1
+********************************************
+Operating point
+********************************************
+op_TAB
+base = 1.081464e+00
+coll = 7.833017e+00
+emit = 3.990681e-01
+emit2 = 8.590473e+00
+in = 0.000000e+00
+in2 = 0.000000e+00
+out = 0.000000e+00
+vcc = 1.200000e+01
+vcc#branch = -3.79587e-02
+vin#branch = 0.000000e+00
+op_END
+********************************************
+Time analysis
+********************************************
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vcc                                         12
+in                                           0
+in2                                          0
+base                                   1.08146
+coll                                   7.83302
+emit                                  0.399068
+emit2                                  8.59047
+out                                          0
+vin#branch                                   0
+vcc#branch                          -0.0379587
+
+
+No. of Data Rows : 1008
+********************************************
+frequency analysis
+********************************************
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 71
+
+The file "vo2f.ps" may be printed on a postscript printer.
+vo2f_FIG
+lower               =  8.155929e+00
+upper               =  2.178859e+06
+
+The file "zin.ps" may be printed on a postscript printer.
+zin_FIG
+op_TAB1
+gain = 6.059407e+01
+lower = 8.155929e+00
+upper = 2.178859e+06
+bandwidth = 2.178851e+06
+zin = 1.215084e+03
+cost = 5.916600e+03
+merit = 2.735974e+03
+op_END1
+ngspice-31 done
