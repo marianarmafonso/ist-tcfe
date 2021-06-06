@@ -1,0 +1,30 @@
+\newpage
+\section{Simulation Analysis}
+\label{sec:simulation}
+This section covers circuit simulation in ngspice, where the output voltage gain, the central cutoff frequency and the input and output impedances were measured.
+\noindent In the following graphs, the frequency response of the output voltage is simulated (with magnitude in db and phase degrees).
+
+\begin{figure}[h!] \centering
+\includegraphics[width=7.5cm]{../sim/vo1f.pdf}
+\includegraphics[width=7.5cm]{../sim/vo1p.pdf}
+\caption{Frequency response of the output voltage gain in the passband.}
+\label{fig:frequency response of the output voltage gain}
+\end{figure}
+
+\noindent Also, in the following table the output voltage gain, the central frequency, the input and output impedances and the merit of the circuit are presented, along with the variables used to calculate them.
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Name} & {\bf Value} \\ \hline
+    \input{../sim/op_tab}
+    \input{../sim/op_tab1}
+  \end{tabular}
+ \caption{Measured values: Gain, cutoff frequencies, central frquency, input and output impedances, gain deviation, frequency deviation and the cost and merit of the circuit).}
+  \label{tab:optabs}
+\end{table}
+
+
+
+

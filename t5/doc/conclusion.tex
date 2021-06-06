@@ -1,0 +1,48 @@
+\newpage
+\section{Conclusion}
+\label{sec:conclusion}
+
+In order to analysis the similarities or discrepancies in the theoretical analysis and the simulation, the following tables made with ngspice and octave are presented.
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Name} & {\bf Value} \\ \hline
+    \input{../sim/op_tab}
+    \input{../sim/op_tab1}
+  \end{tabular}
+ \begin{tabular}{|c|c|}
+ \hline
+ \centering
+    {\bf Name} & {\bf Value} \\ 
+    \hline
+$LowFrequency$ & \partialinput{1}{1}{tabelaRes.tex}\\
+$HighFrequency$ & \partialinput{2}{2}{tabelaRes.tex}\\
+$CentralFrequency$ & \partialinput{3}{3}{tabelaRes.tex}\\
+$Z_{I}$ & \partialinput{4}{4}{tabelaRes.tex}\\
+$Z_{O}$ & \partialinput{5}{5}{tabelaRes.tex}\\
+$Gain$ & \partialinput{6}{6}{tabelaRes.tex}\\
+$Gain (dB)$ & \partialinput{7}{7}{tabelaRes.tex}\\
+\hline
+ \end{tabular}
+ \caption{Simulation (left) and Theoretical (right) operating point results.}
+  \label{tab:conc2}
+\end{table}
+
+
+
+\begin{figure}[h!] \centering
+\includegraphics[width=7.5cm]{../sim/vo1p.pdf}
+\includegraphics[width=0.8\linewidth]{phase.eps}
+\caption{Frequency response of the output voltage gain in the passband: Simulation (left) and Theoretical (right).}
+\label{fig:frequency response of the output voltage gain}
+\end{figure}
+
+\noindent Comparing the values obtained in Octave and Ngspice, the values and graphs obtained were significantly different. As it can be seen the phase plots for simulation and theoretical analysis are slightly different. This can be explained by the difference between the ideal model for an OP-AMP, used in Octave, and the model, much more complex, used by Ngspice.
+\noindent Taking this into account, both analysis were still able to create an audio amplifier circuit, even if the octave's model is not the best representation of the reality, due to its low complexity.
+
+
+
+
+

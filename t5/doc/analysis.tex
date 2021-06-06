@@ -1,0 +1,107 @@
+\newpage
+\section{Theoretical Analysis}
+\label{sec:analysis}
+In this section, the circuit shown in Figure~\ref{fig:Circuit} is analysed theoretically, according to the ideal op-amp model. \\
+\noindent With this model, regarding it is an ideal model, the following equations were obtained for this circuit:
+\begin{equation}
+	Z_{i} = \infty
+\label{eq:Z_i}
+\end{equation}	
+
+\begin{equation}
+	Z_{o}=0
+\label{eq:Z_o}
+\end{equation}
+
+\begin{equation}
+	|Z_{i}| = | Z_{C1} + R_{1} || \infty | = | Z_{C1} + R_{1} |
+\label{eq:Z_i2}
+\end{equation}
+
+\begin{equation}
+	|Z_{o}| = | Z_{C2} || (R_{2} + R_{3} || 0) | = | Z_{C2} || R_{2} |
+\label{eq:Z_i2}
+\end{equation}
+
+\begin{equation}
+v_- = v_+ = \frac {R_1}{R_1 + Z_{C1}} v_I
+\label{eq:v+-}
+\end{equation}
+
+\begin{equation}
+T(s) = (\frac{R_1C_1s}{1+R_1C_1s})(1 + \frac{R_3}{R_4})(\frac{1}{1+R_2C_2s})
+\label{eq:tf}
+\end{equation}
+
+\begin{equation}
+LowFrequency = \frac{1}{R_1C_1}
+\label{eq:wl}
+\end{equation}
+
+\begin{equation}
+HighFrequency = \frac{1}{R_2C_2}
+\label{eq:wh}
+\end{equation}
+
+\begin{equation}
+CentralFrequency = \sqrt{LowFrequency*HighFrequency}
+\label{eq:wo}
+\end{equation}
+
+\begin{table}[!h]
+\centering
+\begin{small}
+\caption{Circuit parametres} \label{Table1}
+\begin{tabular}{|c|c|}
+\hline
+$R_1$  & \partialinput{1}{1}{tabelaVal.tex}\\
+$R_2$   & \partialinput{2}{2}{tabelaVal.tex} \\
+$R_3$   & \partialinput{3}{3}{tabelaVal.tex} \\
+$R_4$    & \partialinput{4}{4}{tabelaVal.tex} \\
+$C_1$    & \partialinput{5}{5}{tabelaVal.tex} \\
+$C_2$    & \partialinput{6}{6}{tabelaVal.tex} \\
+\hline
+\end{tabular}
+\end{small}
+\end{table}
+
+\noindent Solving these equations and using the parametres above, it was possible to compute the frequency response, as well as the values of the cut off and central frequencies, the input and output impedances and the gain at the central frequency. These are shown below.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\linewidth]{gain.eps}
+\caption{Frequency Response: Gain (dB)}
+\label{fig:gain}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\linewidth]{phase.eps}
+\caption{Frequency Response: Phase (Degrees)}
+\label{fig:phase}
+\end{figure}
+
+\begin{table}[!h]
+\centering
+\begin{small}
+\caption{Theoretical Results} \label{Table2}
+\begin{tabular}{|c|c|}
+\hline
+$LowFrequency$ & \partialinput{1}{1}{tabelaRes.tex}\\
+$HighFrequency$ & \partialinput{2}{2}{tabelaRes.tex}\\
+$CentralFrequency$ & \partialinput{3}{3}{tabelaRes.tex}\\
+$Z_{I}$ & \partialinput{4}{4}{tabelaRes.tex}\\
+$Z_{O}$ & \partialinput{5}{5}{tabelaRes.tex}\\
+$Gain$ & \partialinput{6}{6}{tabelaRes.tex}\\
+$Gain (dB)$ & \partialinput{7}{7}{tabelaRes.tex}\\
+\hline
+\end{tabular}
+\end{small}
+\end{table}
+
+
+
+
+
+
+
